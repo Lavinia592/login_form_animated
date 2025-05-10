@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Login Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
+  </head>
+  <body>
+    <div class="login">
+      <img src="./images/woods.jpg" alt="login image" class="login-img" />
+
+      <form action="" class="login-form">
+        <h1 class="login-title">Login</h1>
+
+        <div class="login-content">
+          <div class="login-box">
+            <i class="ri-user-fill login-icon"></i>
+
+            <div class="login-box-input">
+              <input type="email" required class="login-input" placeholder="" />
+              <label for="login-email" class="login-label">Email ID</label>
+            </div>
+          </div>
+
+          <div class="login-box">
+            <i class="ri-lock-fill login-icon"></i>
+
+            <div class="login-box-input">
+              <input
+                type="password"
+                required
+                class="login-input"
+                id="login-pass"
+                placeholder=" "
+              />
+              <label for="login-pass" class="login-label">Password</label>
+              <i class="ri-eye-off-line login-eye" id="login__eye"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="login-check">
+          <div class="login-check-group">
+            <input type="checkbox" class="login-check-input" id="login-check" />
+            <label for="login-check" class="login-check-label"
+              >Remember me</label
+            >
+          </div>
+
+          <a href="#" class="login-forgot">Forgot Password?</a>
+        </div>
+
+        <button class="login-button">Login</button>
+
+        <p class="login-register">
+          Don't have an account?<a href="#">Register</a>
+        </p>
+      </form>
+    </div>
+    <script>
+      /****SHOW HIDDEN PASSWORD****/
+      const showHiddenPass = (loginPass, loginEye) => {
+        const input = document.getElementById(loginPass),
+          iconEye = document.getElementById(loginEye);
+
+        iconEye.addEventListener("click", () => {
+          ///Change pass to text
+          if (input.type === "password") {
+            //switch to text
+            input.type = "text";
+
+            //icon change
+            iconEye.classList.add("ri-eye-line");
+            iconEye.classList.remove("ri-eye-off-line");
+          } else {
+            //switch to password
+            input.type = "password";
+
+            //icon change
+            iconEye.classList.remove("ri-eye-line");
+            iconEye.classList.add("ri-eye-off-line");
+          }
+        });
+      };
+
+      showHiddenPass("login-pass", "login__eye");
+    </script>
+  </body>
+</html>
